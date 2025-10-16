@@ -19,7 +19,7 @@ env:
 jobs:
   push-ghcr:
     name: Build and push image
-    runs-on: ubuntu-24.04
+    runs-on: [self-hosted, Linux]
     permissions:
       contents: read
       packages: write
