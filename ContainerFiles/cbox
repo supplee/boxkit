@@ -6,7 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="supplee@github.com"
 
 # Copy the setup scripts and package list
-#COPY ../scripts/cbox.sh /
+COPY ../scripts/cbox.sh /
 COPY ../scripts/distrobox-shims.sh /
 COPY ../packages/cbox.packages /
 
