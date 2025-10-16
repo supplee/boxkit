@@ -1,0 +1,15 @@
+FROM quay.io/fedora/fedora-toolbox:latest
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with the toolbox or distrobox command" \
+      summary="A distrobox container with gcc and clang compilers." \
+      maintainer="supplee@github.com"
+
+# Copy the setup scripts and package list
+#COPY ../scripts/cbox.sh /
+COPY ../scripts/distrobox-shims.sh /
+COPY ../packages/cbox.packages /
+
+# Run the setup scripts
+RUN chmod +x cbox.sh distrobox-shims.sh && /cbox.sh
+RUN rm /cbox.sh /distrobox-shims.sh /cbox.packages
